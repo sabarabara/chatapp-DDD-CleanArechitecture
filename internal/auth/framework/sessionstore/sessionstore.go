@@ -57,14 +57,26 @@ func (s *SessionstoreImpl)CreateSession(w http.ResponseWriter, r *http.Request,u
 	return validUserSession,sessions.Save(r,w)
 }
 
-func (s *SessionstoreImpl)GetUserId()(uint64){
-	return s.userid
+func (s *SessionstoreImpl)GetUserId()(*users.Userid){
+	userid,err :=  users.NewUserid(s.userid)
+	if err != nil{
+		fmt.Println(err)
+	}
+	return userid
 }
 
-func (s *SessionstoreImpl)GetUsername()(string){
-	return s.username
+func (s *SessionstoreImpl)GetUsername()(*users.Username){
+	username,err :=  users.NewUsername(s.username)
+	if err != nil{
+		fmt.Println(err)
+	}
+	return username
 }
 
-func (s *SessionstoreImpl)GetEmail()(string){
-	return s.email
+func (s *SessionstoreImpl)GetEmail()(*users.Email){
+	email,err :=  users.NewEmail(s.email)
+	if err != nil{
+		fmt.Println(err)
+	}
+	return email
 }

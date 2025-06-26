@@ -7,4 +7,5 @@ import (
 
 type UserFactory interface{
 	CreateUser(userdto *dto.UserDTO)(*db_entity.UserEntity,error)
+	
 }

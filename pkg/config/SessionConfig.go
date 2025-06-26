@@ -1,4 +1,4 @@
-package sessionconfig
+package config
 
 import (
 	"github.com/gorilla/sessions"
